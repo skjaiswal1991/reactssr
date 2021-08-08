@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    command: 
+
+    # install Node 14
+    - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+    - apt install -y nodejs
+    # install npm
+
+    pre_build :
+     commands:
+      #install 
+      - npm i
+    build:
+     command:
+     - npm  build
+artifacts:
+  files:
+    - "**/*"
+    discard-paths: no
+    base-directory: build
